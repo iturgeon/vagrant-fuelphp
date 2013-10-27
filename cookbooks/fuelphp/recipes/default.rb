@@ -5,7 +5,7 @@ execute "update" do
     not_if "which php"
 end
 
-# need this to add php5.modern below
+# need this to add php5  below
 package "python-software-properties" do
     action :install
     options "--force-yes"
@@ -32,18 +32,8 @@ include_recipe "mysql::server"
 include_recipe "php"
 include_recipe "php::module_mysql"
 include_recipe "php::module_gd"
-include_recipe "php::module_curl"
 include_recipe "apache2::mod_php5"
 include_recipe "apache2::mod_rewrite"
-
-# install additional libraries
-# package "curl" do
-#     action :install
-# end
-
-# package "php5-curl" do
-#     action :install
-# end
 
 # setup the vhost
 web_app "fuelphp" do
@@ -82,6 +72,17 @@ execute "php composer.phar install" do
 end
 
 # =================== OPTIONAL STUFF ===================== #
+
+# include_recipe "php::module_curl"
+
+# install additional libraries like curl
+# package "curl" do
+#     action :install
+# end
+
+# package "php5-curl" do
+#     action :install
+# end
 
 # run your fuelphp install task
 # execute "fuel php install" do
