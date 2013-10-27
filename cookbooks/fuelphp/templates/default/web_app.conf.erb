@@ -1,0 +1,13 @@
+<VirtualHost *:8080>
+	DocumentRoot /mnt/fuelphp/public
+	ServerName fuelphp.local
+	ServerAlias fuelphp
+
+	<Directory /mnt/fuelphp>
+		Options FollowSymLinks Indexes
+		AllowOverride all
+		EnableMMAP Off 
+		EnableSendfile Off
+	</Directory>
+
+</VirtualHost>
