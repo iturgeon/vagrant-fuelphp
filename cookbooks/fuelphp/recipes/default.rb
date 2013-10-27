@@ -2,23 +2,27 @@
 execute "update" do
     command "apt-get update"
     user "root"
+    not_if "which php"
 end
 
 # need this to add php5.modern below
 package "python-software-properties" do
     action :install
     options "--force-yes"
+    not_if "which php"
 end
 
 # old stable should keep us from installing a php too new for the apache cookbook
 execute "add-apt-repository ppa:ondrej/php5" do
     command "add-apt-repository ppa:ondrej/php5-oldstable"
     user "root"
+    not_if "which php"
 end
 
 execute "update" do
     command "apt-get update"
     user "root"
+    not_if "which php"
 end
 
 # install LAMP setup
@@ -74,6 +78,7 @@ end
 execute "php composer.phar install" do
     command "php composer.phar install"
     cwd "/mnt/fuelphp"
+    creates "/mnt/fuelphp/composer.lock"
 end
 
 # =================== OPTIONAL STUFF ===================== #
