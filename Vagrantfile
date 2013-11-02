@@ -3,9 +3,14 @@
 
 Vagrant.configure("2") do |config|
 
-  config.vm.box     = "precise64"
-  config.vm.box_url = "http://files.vagrantup.com/precise64.box"
+  # Base Box Used to create the fuelphp box
+  # config.vm.box     = "precise64"
+  # config.vm.box_url = "http://files.vagrantup.com/precise64.box"
 
+  # This is the above box with all the dependencies built in
+  config.vm.box     = "fuelphp"
+  config.vm.box_url = "https://dl.dropboxusercontent.com/u/2215481/vagrant/fuelphp.box"
+  
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
