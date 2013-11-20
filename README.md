@@ -20,6 +20,7 @@ Add this Vagrant-FuelPHP to your project:
 
 	$ git submodule add git@github.com:iturgeon/vagrant-fuelphp.git vagrant
 	$ git submodule update --init --recursive
+	$ cd vagrant
 	$ vagrant up
 
 Setup your directories something like this:
